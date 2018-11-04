@@ -1,4 +1,4 @@
-package com.chaika.utils;
+package com.chaika.files.utils;
 
 import com.google.common.base.Joiner;
 
@@ -7,6 +7,10 @@ import javax.persistence.Converter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+/**
+ * Created by echaika on 03.11.2018
+ */
 
 @Converter
 public class StringListConverter implements AttributeConverter<List<String>, String> {

@@ -20,7 +20,7 @@
     <modules>
         <module>application-war</module>
         <module>integration</module>
-        <module>main</module>
+        <module>root</module>
     </modules>
 
     <build>

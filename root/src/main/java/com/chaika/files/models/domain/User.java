@@ -1,14 +1,14 @@
-package com.chaika.models.domain;
+package com.chaika.files.models.domain;
 
-import com.chaika.models.Role;
-import com.chaika.utils.StringListConverter;
+import com.chaika.files.models.Role;
+import com.chaika.files.utils.StringListConverter;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.List;
 
 /**
- * Created on 14.09.17.
+ * Created by echaika on 03.11.2018
  */
 
 @Entity
@@ -17,7 +17,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "username")
     private String username;
@@ -41,11 +41,11 @@ public class User implements UserDetails {
     @Column(name = "enabled", columnDefinition = "true")
     private boolean enabled;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
