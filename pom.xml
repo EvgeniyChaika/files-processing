@@ -40,5 +40,4 @@
         <finalName>files-processing-${project.version}</finalName>
     </build>
 
-
 </project>

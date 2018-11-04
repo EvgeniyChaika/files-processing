@@ -1,12 +1,18 @@
 package com.chaika.files.bootstrap;
 
+import com.chaika.files.models.Role;
 import com.chaika.files.models.domain.User;
 import com.chaika.files.repositories.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -17,6 +23,8 @@ import java.util.List;
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private final UserRepository userRepository;
+
+    private final Logger logger = LoggerFactory.getLogger(DevBootstrap.class);
 
     @Autowired
     public DevBootstrap(UserRepository userRepository) {
@@ -33,14 +41,19 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
         if (userList.isEmpty()) {
             User user1 = new User();
-            user1.setUsername("TestUser1");
+            user1.setUsername("UserTest");
+            user1.setPassword("test");
+            user1.setAuthorities(Collections.singletonList(Role.USER));
             userList.add(user1);
 
             User user2 = new User();
-            user2.setUsername("TestUser2");
+            user2.setUsername("CustomerTest");
+            user2.setPassword("test");
+            user2.setAuthorities(new ArrayList<>(Arrays.asList(Role.CUSTOMER, Role.ADMIN)));
             userList.add(user2);
 
-            userRepository.saveAll(userList);
+            List<User> list = userRepository.saveAll(userList);
+            logger.info("Saved list - " + String.valueOf(list));
         }
     }
 }
