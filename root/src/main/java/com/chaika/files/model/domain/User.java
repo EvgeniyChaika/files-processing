@@ -1,6 +1,6 @@
-package com.chaika.files.models.domain;
+package com.chaika.files.model.domain;
 
-import com.chaika.files.models.Role;
+import com.chaika.files.model.Role;
 import com.chaika.files.utils.StringListConverter;
 import org.springframework.security.core.userdetails.UserDetails;
 

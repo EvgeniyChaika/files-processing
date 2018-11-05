@@ -1,4 +1,4 @@
-package com.chaika.files.models;
+package com.chaika.files.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

@@ -1,8 +1,9 @@
 package com.chaika.files.bootstrap;
 
-import com.chaika.files.models.Role;
-import com.chaika.files.models.domain.User;
-import com.chaika.files.repositories.UserRepository;
+import com.chaika.files.model.Role;
+import com.chaika.files.model.domain.User;
+import com.chaika.files.repository.UserRepository;
+import com.chaika.files.service.test.GreetingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,16 @@ import java.util.List;
 @Component
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
+
+    private GreetingService greetingService;
 
     private final Logger logger = LoggerFactory.getLogger(DevBootstrap.class);
 
     @Autowired
-    public DevBootstrap(UserRepository userRepository) {
+    public DevBootstrap(UserRepository userRepository, GreetingService greetingService) {
         this.userRepository = userRepository;
+        this.greetingService = greetingService;
     }
 
     @Override
@@ -55,5 +59,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
             List<User> list = userRepository.saveAll(userList);
             logger.info("Saved list - " + String.valueOf(list));
         }
+
+        greetingService.printMessage();
     }
 }

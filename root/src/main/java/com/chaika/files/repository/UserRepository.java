@@ -1,6 +1,6 @@
-package com.chaika.files.repositories;
+package com.chaika.files.repository;
 
-import com.chaika.files.models.domain.User;
+import com.chaika.files.model.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
