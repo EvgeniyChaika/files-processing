@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Profile("ru")
+//@IgnoreDuringScan
 public class GreetingRussianServiceImpl implements GreetingService {
 
     @Override

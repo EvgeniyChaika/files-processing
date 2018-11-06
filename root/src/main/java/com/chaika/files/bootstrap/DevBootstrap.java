@@ -21,6 +21,7 @@ import java.util.List;
  */
 
 @Component
+//@IgnoreDuringScan
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private UserRepository userRepository;

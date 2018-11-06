@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Profile({"en", "default"})
+//@IgnoreDuringScan
 public class GreetingPrimaryServiceImpl implements GreetingService {
 
     @Override
