@@ -1,4 +1,4 @@
-package com.chaika.files.service.test;
+package com.chaika.files.service.studying;
 
 /**
  * Created by echaika on 05.11.2018

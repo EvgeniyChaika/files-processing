@@ -3,7 +3,7 @@ package com.chaika.files.bootstrap;
 import com.chaika.files.model.Role;
 import com.chaika.files.model.domain.User;
 import com.chaika.files.repository.UserRepository;
-import com.chaika.files.service.test.GreetingService;
+import com.chaika.files.service.studying.GreetingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,13 +47,13 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         if (userList.isEmpty()) {
             User user1 = new User();
             user1.setUsername("UserTest");
-            user1.setPassword("test");
+            user1.setPassword("studying");
             user1.setAuthorities(Collections.singletonList(Role.USER));
             userList.add(user1);
 
             User user2 = new User();
             user2.setUsername("CustomerTest");
-            user2.setPassword("test");
+            user2.setPassword("studying");
             user2.setAuthorities(new ArrayList<>(Arrays.asList(Role.CUSTOMER, Role.ADMIN)));
             userList.add(user2);
 
