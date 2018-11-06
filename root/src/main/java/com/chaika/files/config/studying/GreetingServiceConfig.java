@@ -1,6 +1,6 @@
 package com.chaika.files.config.studying;
 
-import com.chaika.files.repository.UserRepository;
+import com.chaika.files.repository.studying.GreetingRepository;
 import com.chaika.files.service.studying.GreetingService;
 import com.chaika.files.service.studying.GreetingServiceFactory;
 import org.springframework.context.annotation.Bean;
@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Profile;
 public class GreetingServiceConfig {
 
     @Bean
-    GreetingServiceFactory greetingServiceFactory(UserRepository userRepository) {
-        return new GreetingServiceFactory(userRepository);
+    GreetingServiceFactory greetingServiceFactory(GreetingRepository greetingRepository) {
+        return new GreetingServiceFactory(greetingRepository);
     }
 
     @Bean

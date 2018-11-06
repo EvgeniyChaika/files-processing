@@ -1,6 +1,6 @@
 package com.chaika.files.service.studying;
 
-import com.chaika.files.repository.UserRepository;
+import com.chaika.files.repository.studying.GreetingRepository;
 import com.chaika.files.service.studying.impl.GreetingFinnishServiceImpl;
 import com.chaika.files.service.studying.impl.GreetingPrimaryServiceImpl;
 import com.chaika.files.service.studying.impl.GreetingRussianServiceImpl;
@@ -11,22 +11,22 @@ import com.chaika.files.service.studying.impl.GreetingRussianServiceImpl;
 public class GreetingServiceFactory {
 
 
-    private UserRepository userRepository;
+    private GreetingRepository greetingRepository;
 
-    public GreetingServiceFactory(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public GreetingServiceFactory(GreetingRepository greetingRepository) {
+        this.greetingRepository = greetingRepository;
     }
 
     public GreetingService createGreetingService(String lang) {
         switch (lang) {
             case "en":
-                return new GreetingPrimaryServiceImpl(userRepository);
+                return new GreetingPrimaryServiceImpl(greetingRepository);
             case "fi":
-                return new GreetingFinnishServiceImpl(userRepository);
+                return new GreetingFinnishServiceImpl(greetingRepository);
             case "ru":
-                return new GreetingRussianServiceImpl(userRepository);
+                return new GreetingRussianServiceImpl(greetingRepository);
             default:
-                return new GreetingPrimaryServiceImpl(userRepository);
+                return new GreetingPrimaryServiceImpl(greetingRepository);
         }
     }
 }

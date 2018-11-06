@@ -1,6 +1,6 @@
 package com.chaika.files.service.studying.impl;
 
-import com.chaika.files.repository.UserRepository;
+import com.chaika.files.repository.studying.GreetingRepository;
 import com.chaika.files.service.studying.GreetingService;
 
 /**
@@ -8,14 +8,14 @@ import com.chaika.files.service.studying.GreetingService;
  */
 public class GreetingRussianServiceImpl implements GreetingService {
 
-    private UserRepository userRepository;
+    private GreetingRepository greetingRepository;
 
-    public GreetingRussianServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public GreetingRussianServiceImpl(GreetingRepository greetingRepository) {
+        this.greetingRepository = greetingRepository;
     }
 
     @Override
     public void printMessage() {
-        System.out.println("Тест профайл RU");
+        greetingRepository.getRussianGreeting();
     }
 }
