@@ -1,9 +1,9 @@
-package com.chaika.files.config.datasource;
+package com.chaika.files.config.jms;
 
 /**
- * Created by echaika on 06.11.2018
+ * Created by echaika on 07.11.2018
  */
-public class ExternalDataSource {
+public class JmsTestSource {
 
     private String username;
     private String password;
@@ -35,7 +35,7 @@ public class ExternalDataSource {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ExternalDataSource{");
+        final StringBuilder sb = new StringBuilder("JmsTestSource{");
         sb.append("username='").append(username).append('\'');
         sb.append(", password='").append(password).append('\'');
         sb.append(", url='").append(url).append('\'');

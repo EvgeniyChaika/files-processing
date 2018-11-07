@@ -10,7 +10,6 @@ import com.chaika.files.service.studying.impl.GreetingRussianServiceImpl;
  */
 public class GreetingServiceFactory {
 
-
     private GreetingRepository greetingRepository;
 
     public GreetingServiceFactory(GreetingRepository greetingRepository) {

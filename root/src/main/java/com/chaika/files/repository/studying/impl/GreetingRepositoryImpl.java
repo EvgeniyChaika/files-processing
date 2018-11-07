@@ -1,6 +1,8 @@
 package com.chaika.files.repository.studying.impl;
 
 import com.chaika.files.repository.studying.GreetingRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,18 +11,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class GreetingRepositoryImpl implements GreetingRepository {
 
+    private static final Logger logger = LoggerFactory.getLogger(GreetingRepository.class);
+
     @Override
     public void getEnglishGreeting() {
-        System.out.println("Test profile EN");
+        logger.info("Test profile EN");
     }
 
     @Override
     public void getFinnishGreeting() {
-        System.out.println("Test profile FI");
+        logger.info("Test profile FI");
     }
 
     @Override
     public void getRussianGreeting() {
-        System.out.println("Test profile RU");
+        logger.info("Test profile RU");
     }
 }
