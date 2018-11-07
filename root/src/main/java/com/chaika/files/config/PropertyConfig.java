@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -15,6 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -22,6 +24,7 @@ import java.util.Objects;
  */
 @Configuration
 @PropertySource("classpath:jms.properties")
+@ConfigurationProperties(prefix = "test")
 public class PropertyConfig {
 
     @Value("${mysql.datasource.username}")
@@ -30,6 +33,17 @@ public class PropertyConfig {
     private String password;
     @Value("${mysql.datasource.url}")
     private String url;
+
+    /**
+     * YAML list properties example
+     */
+    private List<String> names;
+
+    public void setNames(List<String> names) {
+        this.names = names;
+    }
+
+    /** ---- */
 
     @Value("${jms.test.username}")
     private String jmsUsername;
@@ -55,6 +69,7 @@ public class PropertyConfig {
         externalDataSource.setUrl(url);
         logger.info("Active profiles - {}", Arrays.toString(environment.getActiveProfiles()));
         logger.info("Environment TEST_ENV value - {}", environment.getProperty("TEST_ENV"));
+        logger.info("YAML test names - {}", names);
         return externalDataSource;
     }
 

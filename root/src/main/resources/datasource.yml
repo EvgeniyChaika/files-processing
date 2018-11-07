@@ -3,3 +3,19 @@ mysql:
     url: 'url to MySql database'
     username: 'username'
     password: 'password'
+test:
+  names:
+  - John
+  - Peter
+  - Michael
+
+---
+
+spring:
+  profiles:
+    ru
+test:
+  names:
+  - Евгений
+  - Петр
+  - Михаил
