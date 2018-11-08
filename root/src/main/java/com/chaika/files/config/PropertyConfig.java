@@ -68,7 +68,7 @@ public class PropertyConfig {
         externalDataSource.setPassword(password);
         externalDataSource.setUrl(url);
         logger.info("Active profiles - {}", Arrays.toString(environment.getActiveProfiles()));
-        logger.info("Environment TEST_ENV value - {}", environment.getProperty("TEST_ENV"));
+        logger.info("Environment TEST_ENV value - {}", environment.getProperty("TEST_ENV")); // TEST_ENV=Test environment value
         logger.info("YAML test names - {}", names);
         return externalDataSource;
     }
