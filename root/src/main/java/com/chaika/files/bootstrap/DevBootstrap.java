@@ -4,8 +4,7 @@ import com.chaika.files.model.Role;
 import com.chaika.files.model.domain.User;
 import com.chaika.files.repository.UserRepository;
 import com.chaika.files.service.studying.GreetingService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -19,7 +18,7 @@ import java.util.List;
 /**
  * Created by echaika on 03.11.2018
  */
-
+@Slf4j
 @Component
 //@IgnoreDuringScan
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
@@ -27,8 +26,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     private UserRepository userRepository;
 
     private GreetingService greetingService;
-
-    private final Logger logger = LoggerFactory.getLogger(DevBootstrap.class);
 
     @Autowired
     public DevBootstrap(UserRepository userRepository, GreetingService greetingService) {
@@ -58,7 +55,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
             userList.add(user2);
 
             List<User> list = userRepository.saveAll(userList);
-            logger.info("Saved list - " + String.valueOf(list));
+            log.info("Saved list - " + String.valueOf(list));
         }
 
         greetingService.printMessage();

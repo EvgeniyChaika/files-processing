@@ -2,8 +2,7 @@ package com.chaika.files.config;
 
 import com.chaika.files.config.datasource.ExternalDataSource;
 import com.chaika.files.config.jms.JmsTestSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
@@ -22,6 +21,7 @@ import java.util.Objects;
 /**
  * Created by echaika on 06.11.2018
  */
+@Slf4j
 @Configuration
 @PropertySource("classpath:jms.properties")
 @ConfigurationProperties(prefix = "test")
@@ -54,8 +54,6 @@ public class PropertyConfig {
 
     private final Environment environment;
 
-    private static final Logger logger = LoggerFactory.getLogger(PropertyConfig.class);
-
     @Autowired
     public PropertyConfig(Environment environment) {
         this.environment = environment;
@@ -67,9 +65,9 @@ public class PropertyConfig {
         externalDataSource.setUsername(username);
         externalDataSource.setPassword(password);
         externalDataSource.setUrl(url);
-        logger.info("Active profiles - {}", Arrays.toString(environment.getActiveProfiles()));
-        logger.info("Environment TEST_ENV value - {}", environment.getProperty("TEST_ENV")); // TEST_ENV=Test environment value
-        logger.info("YAML test names - {}", names);
+        log.info("Active profiles - {}", Arrays.toString(environment.getActiveProfiles()));
+        log.info("Environment TEST_ENV value - {}", environment.getProperty("TEST_ENV")); // TEST_ENV=Test environment value
+        log.info("YAML test names - {}", names);
         return externalDataSource;
     }
 
@@ -79,7 +77,7 @@ public class PropertyConfig {
         jmsTestSource.setUsername(jmsUsername);
         jmsTestSource.setPassword(jmsPassword);
         jmsTestSource.setUrl(jmsUrl);
-        logger.info(jmsTestSource.toString());
+        log.info(jmsTestSource.toString());
         return jmsTestSource;
     }
 
